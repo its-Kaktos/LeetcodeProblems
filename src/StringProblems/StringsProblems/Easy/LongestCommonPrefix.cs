@@ -2,6 +2,11 @@ namespace StringsProblems.Easy;
 
 public class LongestCommonPrefix
 {
+    /// <summary>
+    /// https://leetcode.com/problems/longest-common-prefix/
+    /// </summary>
+    /// <param name="strs"></param>
+    /// <returns></returns>
     public string method(string[] strs)
     {
         if (strs.Length == 0)
