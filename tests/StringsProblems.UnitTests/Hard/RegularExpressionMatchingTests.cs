@@ -5,13 +5,13 @@ namespace StringsProblems.UnitTests.Hard;
 
 public class RegularExpressionMatchingTests
 {
-    private RegularExpressionMatching _sut = new();
+    private readonly RegularExpressionMatching _sut = new();
 
     public static IEnumerable<object[]> Data_Test()
     {
-        yield return ["aa", "a", false];
-        yield return ["aa", "a*", true];
-        yield return ["aa", ".*", true];
+        yield return new object[] {"aa", "a", false};
+        yield return new object[] {"aa", "a*", true};
+        yield return new object[] {"aa", ".*", true};
     }
 
     [Theory]

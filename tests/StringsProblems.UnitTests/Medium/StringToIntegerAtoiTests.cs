@@ -5,25 +5,26 @@ namespace StringsProblems.UnitTests.Medium;
 
 public class StringToIntegerAtoiTests
 {
-    private StringToIntegerAtoi _sut = new();
+    private readonly StringToIntegerAtoi _sut = new();
 
     public static IEnumerable<object[]> Data_Test()
     {
-        yield return ["42", 42];
-        yield return ["   -042", -42];
-        yield return ["   +042", 42];
-        yield return ["   +-042", 0];
-        yield return ["   +-042", 0];
-        yield return ["1337c0d32", 1337];
-        yield return ["swd1337c0d32", 0];
-        yield return ["0-1", 0];
-        yield return ["words and 987", 0];
-        yield return ["20000000000000", int.MaxValue];
-        yield return ["-20000000000000", int.MinValue];
-        yield return ["+", 0];
-        yield return ["-", 0];
-        yield return ["-+", 0];
-        yield return ["w-+", 0];
+        yield return new object[] { "42", 42 };
+        yield return new object[] {"42", 42};
+        yield return new object[] {"   -042", -42};
+        yield return new object[] {"   +042", 42};
+        yield return new object[] {"   +-042", 0};
+        yield return new object[] {"   +-042", 0};
+        yield return new object[] {"1337c0d32", 1337};
+        yield return new object[] {"swd1337c0d32", 0};
+        yield return new object[] {"0-1", 0};
+        yield return new object[] {"words and 987", 0};
+        yield return new object[] {"20000000000000", int.MaxValue};
+        yield return new object[] {"-20000000000000", int.MinValue};
+        yield return new object[] {"+", 0};
+        yield return new object[] {"-", 0};
+        yield return new object[] {"-+", 0};
+        yield return new object[] {"w-+", 0};
     }
 
     [Theory]
