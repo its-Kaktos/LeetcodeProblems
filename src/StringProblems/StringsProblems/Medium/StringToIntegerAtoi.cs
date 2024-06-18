@@ -4,6 +4,11 @@ namespace StringsProblems.Medium;
 
 public class StringToIntegerAtoi
 {
+    /// <summary>
+    /// https://leetcode.com/problems/string-to-integer-atoi/
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
     public int MyAtoi(string s)
     {
         var isPositive = true;
