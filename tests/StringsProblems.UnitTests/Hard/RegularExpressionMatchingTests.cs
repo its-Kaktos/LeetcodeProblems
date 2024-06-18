@@ -13,7 +13,6 @@ public class RegularExpressionMatchingTests
         yield return new object[] {"aa", "a", false};
         yield return new object[] {"aa", "a*", true};
         yield return new object[] {"aa", ".*", true};
-        yield return new object[] {"ab", ".*", true};
         yield return new object[] {"aab", "c*a*b", true};
         yield return new object[] {"mississippi", "mis*is*ip*.", true};
         yield return new object[] {"mississippi", "mis*is*p*.", false};
@@ -23,6 +22,7 @@ public class RegularExpressionMatchingTests
         yield return new object[] {"aaa", "ab*a*c*a", true};
         yield return new object[] {"a", "ab*a", false};
         yield return new object[] {"ab", ".*..", true};
+        yield return new object[] {"a", "ab*", true};
     }
 
     [Theory]
