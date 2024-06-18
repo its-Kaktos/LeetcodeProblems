@@ -20,11 +20,14 @@ public class StringToIntegerAtoiTests
         yield return ["words and 987", 0];
         yield return ["20000000000000", int.MaxValue];
         yield return ["-20000000000000", int.MinValue];
+        yield return ["+", 0];
+        yield return ["-", 0];
+        yield return ["-+", 0];
+        yield return ["w-+", 0];
     }
 
     [Theory]
     [MemberData(nameof(Data_Test))]
-    
     public void Test(string input, int expected)
     {
         var actual = _sut.MyAtoi(input);
