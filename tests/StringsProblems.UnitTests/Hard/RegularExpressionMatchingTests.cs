@@ -26,6 +26,7 @@ public class RegularExpressionMatchingTests
         yield return new object[] {"a", "ab*", true};
         yield return new object[] {"aaa", "ab*ac*a", true};
         yield return new object[] {"a", ".*..a*", false};
+        yield return new object[] {"a", ".*..a*", false};
     }
 
     [Theory]

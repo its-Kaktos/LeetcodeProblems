@@ -2,100 +2,44 @@ namespace StringsProblems.Hard;
 
 public class RegularExpressionMatching
 {
+    private bool?[,] _cacheMemo;
+
     /// <summary>
     /// https://leetcode.com/problems/regular-expression-matching/
+    /// Code from : https://www.youtube.com/watch?v=HAA8mgxlov8&amp;ab_channel=NeetCode - https://leetcode.com/problems/regular-expression-matching/editorial/
     /// </summary>
     /// <param name="s"></param>
     /// <param name="p"></param>
     /// <returns></returns>
     public bool IsMatch(string s, string p)
     {
-        var pI = 0;
-        var sI = 0;
-        while (pI < p.Length)
+        _cacheMemo = new bool?[s.Length + 1, p.Length + 1];
+        return DepthFirstSearch(0, 0, s, p);
+    }
+
+    private bool DepthFirstSearch(int i, int j, string text, string pattern)
+    {
+        if (_cacheMemo[i, j] != null) return _cacheMemo[i, j]!.Value;
+
+        bool result;
+        if (j == pattern.Length)
         {
-            if (pI + 1 < p.Length && p[pI + 1] is '*')
-            {
-                pI++;
-                continue;
-            }
-
-            if (p[pI] is '*')
-            {
-                if (sI >= s.Length && pI == p.Length - 1) return true;
-
-                if (pI < p.Length - 1 && sI >= s.Length)
-                {
-                    if (pI + 2 < p.Length && p[pI + 2] is '*')
-                    {
-                        pI += 2;
-                        continue;
-                    }
-
-                    pI++;
-                    sI--;
-                    continue;
-                }
-
-                if (p[pI - 1] is '.' || p[pI - 1] == s[sI])
-                {
-                    sI++;
-                    continue;
-                }
-                
-                pI++;
-                if (pI >= p.Length && pI - 3 >= 0 && p[pI - 3] == s[sI]) return true;
-                if (pI == p.Length - 1 && p[pI] is not '.')
-                {
-                    var lastCharacter = GetLastCharacter(pI);
-
-                    if ((lastCharacter is '.' || lastCharacter == s[sI]) && (sI - 1 <= 0 || s[sI - 1] != lastCharacter) &&
-                        !AnySpecificCharAstrixExistsBetweenExclusive(pI, p[pI])) return false;
-                }
-                continue;
-            }
-
-            if (sI >= s.Length) return false;
-
-            if (p[pI] is '.' || s[sI] == p[pI])
-            {
-                sI++;
-                pI++;
-
-                if (sI >= s.Length && pI >= p.Length) return true;
-                if (pI <= p.Length - 1 && sI >= s.Length  && p[pI] is not '.' && p[pI] != s[sI - 1]) sI--;
-                continue;
-            }
-            
-            pI++;
+            result = i == text.Length;
+            _cacheMemo[i, j] = result;
+            return result;
         }
 
-        return false;
-
-        char GetLastCharacter(int before)
+        var isMatch = i < text.Length && (pattern[j] == text[i] || pattern[j] == '.');
+        if (j + 1 < pattern.Length && pattern[j + 1] == '*')
         {
-            for (var r = before - 1; r >= 0; r--)
-            {
-                if (p[r] is '*')
-                {
-                    r--;
-                    continue;
-                }
-
-                return p[r];
-            }
-
-            return ' ';
+            result = DepthFirstSearch(i, j + 2, text, pattern) || // dont use *
+                     (isMatch && DepthFirstSearch(i + 1, j, text, pattern)); // use *
+            _cacheMemo[i, j] = result;
+            return result;
         }
 
-        bool AnySpecificCharAstrixExistsBetweenExclusive(int end, char c)
-        {
-            for (var i = end - 1; i >= 0; i--)
-            {
-                if (p[i] is '*' && i - 1 != 0 && p[i - 1] == c) return true;
-            }
-
-            return false;
-        }
+        result = isMatch && DepthFirstSearch(i + 1, j + 1, text, pattern);
+        _cacheMemo[i, j] = result;
+        return result;
     }
 }
