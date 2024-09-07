@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace ArrayProblems.Medium.MaximumSubarraySumProblem;
 
 public class Problem
