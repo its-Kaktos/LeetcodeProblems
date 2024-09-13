@@ -5,70 +5,55 @@ namespace DynamicProgramming.Medium._5_LongestPalindromicSubstring;
 /// </summary>
 public class Problem
 {
-    // ["babad", "bab"];
-    // ["cbbd", "bb"];
+    /// <summary>
+    /// https://www.youtube.com/watch?v=XYQecbcd6_c&ab_channel=NeetCode
+    /// There are faster solutions for this that runs at O(N).
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
     public string LongestPalindrome(string s)
     {
         if (s.Length == 1) return s;
 
-        var mid = s.Length / 2;
-        var start = mid;
-        var end = mid;
+        var bl = -1;
+        var br = -1;
+        var bLength = -1;
 
-        while (start >= 0 && end <= s.Length - 1)
+        for (var i = 0; i < s.Length; i++)
         {
-            if (s[start] == s[end])
-            {
-                start--;
-                end++;
+            var left = i;
+            var right = i;
 
-                continue;
+            while (left >= 0 && right < s.Length && s[left] == s[right])
+            {
+                if (right - left + 1 > bLength)
+                {
+                    bl = left;
+                    br = right;
+                    bLength = right - left + 1;
+                }
+
+                left--;
+                right++;
             }
 
-            break;
-        }
+            left = i;
+            right = i + 1;
 
-        while (start >= 0)
-        {
-            if (s[start] == s[end])
+            while (left >= 0 && right < s.Length && s[left] == s[right])
             {
-                start--;
+                if (right - left + 1 > bLength)
+                {
+                    bl = left;
+                    br = right;
+                    bLength = right - left + 1;
+                }
 
-                continue;
+                left--;
+                right++;
             }
-
-            break;
         }
 
-        while (end >= s.Length - 1)
-        {
-            if (s[start] == s[end])
-            {
-                end++;
-
-                continue;
-            }
-
-            break;
-        }
-
-        if (s[start + 1] == s[end - 1])
-        {
-            start++;
-            end--;
-        }
-        else if (s[start + 1] == s[end])
-        {
-            start++;
-        }
-        else if (s[start] == s[end - 1])
-        {
-            end--;
-        }
-
-        var length = end - start;
-        // length = Math.Max(length, 1);
-
-        return s.Substring(start, length);
+        return s.Substring(bl, bLength);
     }
 }
