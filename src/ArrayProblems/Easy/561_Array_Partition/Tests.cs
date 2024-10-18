@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace DynamicProgramming.Medium._357_CountNumbersWithUniqueDigits;
+namespace ArrayProblems.Easy._561_Array_Partition;
 
 public class Tests
 {
@@ -10,26 +10,21 @@ public class Tests
     {
         yield return
         [
-            0,
-            1
+            new int[] { 1,4,3,2 },
+            4
         ];
         yield return
         [
-            2,
-            91
-        ];
-        yield return
-        [
-            8,
-            2345851
+            new int[] { 6,2,6,5,1,2 },
+            9
         ];
     }
 
     [Theory]
     [MemberData(nameof(Data_Test))]
-    public void TestResult(int input, int expected)
+    public void TestResult(int[] input, int expected)
     {
-        var actual = _sut.CountNumbersWithUniqueDigits(input);
+        var actual = _sut.ArrayPairSum(input);
 
         actual.Should().Be(expected);
     }

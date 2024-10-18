@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace DynamicProgramming.Medium._357_CountNumbersWithUniqueDigits;
+namespace StringsProblems.Easy._1768_Merge_Strings_Alternately;
 
 public class Tests
 {
@@ -10,26 +10,29 @@ public class Tests
     {
         yield return
         [
-            0,
-            1
+            "abc",
+            "pqr",
+            "apbqcr"
         ];
         yield return
         [
-            2,
-            91
+            "ab",
+            "pqrs",
+            "apbqrs"
         ];
         yield return
         [
-            8,
-            2345851
+            "abcd",
+            "pq",
+            "apbqcd"
         ];
     }
 
     [Theory]
     [MemberData(nameof(Data_Test))]
-    public void TestResult(int input, int expected)
+    public void TestResult(string word1, string word2, string expected)
     {
-        var actual = _sut.CountNumbersWithUniqueDigits(input);
+        var actual = _sut.MergeAlternately(word1, word2);
 
         actual.Should().Be(expected);
     }

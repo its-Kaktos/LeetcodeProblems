@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace DynamicProgramming.Medium._357_CountNumbersWithUniqueDigits;
+namespace ArrayProblems.Easy._2239_FindClosestNumberToZero;
 
 public class Tests
 {
@@ -10,26 +10,21 @@ public class Tests
     {
         yield return
         [
-            0,
+            new int[] {-4,-2,1,4,8},
             1
         ];
         yield return
         [
-            2,
-            91
-        ];
-        yield return
-        [
-            8,
-            2345851
+            new int[] {2,-1,1},
+            1
         ];
     }
 
     [Theory]
     [MemberData(nameof(Data_Test))]
-    public void TestResult(int input, int expected)
+    public void TestResult(int[] input, int expected)
     {
-        var actual = _sut.CountNumbersWithUniqueDigits(input);
+        var actual = _sut.FindClosestNumber(input);
 
         actual.Should().Be(expected);
     }

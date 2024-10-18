@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace DynamicProgramming.Medium._357_CountNumbersWithUniqueDigits;
+namespace ArrayProblems.Medium._16_3Sum_Closest;
 
 public class Tests
 {
@@ -10,26 +10,23 @@ public class Tests
     {
         yield return
         [
-            0,
-            1
+            new int[] { -1, 2, 1, -4 },
+            1,
+            2
         ];
         yield return
         [
-            2,
-            91
-        ];
-        yield return
-        [
-            8,
-            2345851
+            new int[] { 0, 0, 0 },
+            1,
+            0
         ];
     }
 
     [Theory]
     [MemberData(nameof(Data_Test))]
-    public void TestResult(int input, int expected)
+    public void TestResult(int[] input, int target, int expected)
     {
-        var actual = _sut.CountNumbersWithUniqueDigits(input);
+        var actual = _sut.ThreeSumClosest(input, target);
 
         actual.Should().Be(expected);
     }

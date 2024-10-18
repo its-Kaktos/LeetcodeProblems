@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace DynamicProgramming.Medium._357_CountNumbersWithUniqueDigits;
+namespace StringsProblems.Easy._13_Roman_To_Integer;
 
 public class Tests
 {
@@ -10,26 +10,26 @@ public class Tests
     {
         yield return
         [
-            0,
-            1
+            "III",
+            3
         ];
         yield return
         [
-            2,
-            91
+            "LVIII",
+            58
         ];
         yield return
         [
-            8,
-            2345851
+            "MCMXCIV",
+            1994
         ];
     }
 
     [Theory]
     [MemberData(nameof(Data_Test))]
-    public void TestResult(int input, int expected)
+    public void TestResult(string input, int expected)
     {
-        var actual = _sut.CountNumbersWithUniqueDigits(input);
+        var actual = _sut.RomanToInt(input);
 
         actual.Should().Be(expected);
     }

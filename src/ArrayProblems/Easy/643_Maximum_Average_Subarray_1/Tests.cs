@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace DynamicProgramming.Medium._357_CountNumbersWithUniqueDigits;
+namespace ArrayProblems.Easy._643_Maximum_Average_Subarray_1;
 
 public class Tests
 {
@@ -10,26 +10,23 @@ public class Tests
     {
         yield return
         [
-            0,
-            1
+            new int[] { 1, 12, -5, -6, 50, 3 },
+            4,
+            12.75000
         ];
         yield return
         [
-            2,
-            91
-        ];
-        yield return
-        [
-            8,
-            2345851
+            new int[] { 5 },
+            1,
+            5.00000
         ];
     }
 
     [Theory]
     [MemberData(nameof(Data_Test))]
-    public void TestResult(int input, int expected)
+    public void TestResult(int[] input, int k, double expected)
     {
-        var actual = _sut.CountNumbersWithUniqueDigits(input);
+        var actual = _sut.FindMaxAverage(input, k);
 
         actual.Should().Be(expected);
     }
