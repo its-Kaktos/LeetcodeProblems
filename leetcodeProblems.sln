@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{19963BF2-010C-45D3-B7CC-EE189312F569}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsProblems", "src\StringProblems\StringsProblems\StringsProblems.csproj", "{137ADAD2-129A-4758-BB4B-9B26555E47C3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7678744E-F63C-4B0B-9A3E-E78AA569030E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsProblems.UnitTests", "tests\StringsProblems.UnitTests\StringsProblems.UnitTests.csproj", "{26148D41-6132-4F4D-8540-7A99D71FC1B7}"
@@ -12,22 +10,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayProblems", "src\ArrayP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicProgramming", "src\DynamicProgramming\DynamicProgramming.csproj", "{7A472F3B-3E30-45F7-8263-18CD9340138F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{09DE3DCC-2916-4439-ABE2-1EC64FC32CB6}"
+	ProjectSection(SolutionItems) = preProject
+		templates\Problem.cs = templates\Problem.cs
+		templates\Tests.cs = templates\Tests.cs
+		templates\generate.sh = templates\generate.sh
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsProblems", "src\StringsProblems\StringsProblems.csproj", "{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{137ADAD2-129A-4758-BB4B-9B26555E47C3} = {19963BF2-010C-45D3-B7CC-EE189312F569}
 		{26148D41-6132-4F4D-8540-7A99D71FC1B7} = {7678744E-F63C-4B0B-9A3E-E78AA569030E}
 		{23E442C2-7311-4A29-9F93-852181BC193F} = {19963BF2-010C-45D3-B7CC-EE189312F569}
 		{7A472F3B-3E30-45F7-8263-18CD9340138F} = {19963BF2-010C-45D3-B7CC-EE189312F569}
+		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840} = {19963BF2-010C-45D3-B7CC-EE189312F569}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{137ADAD2-129A-4758-BB4B-9B26555E47C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{137ADAD2-129A-4758-BB4B-9B26555E47C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{137ADAD2-129A-4758-BB4B-9B26555E47C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{137ADAD2-129A-4758-BB4B-9B26555E47C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{26148D41-6132-4F4D-8540-7A99D71FC1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{26148D41-6132-4F4D-8540-7A99D71FC1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26148D41-6132-4F4D-8540-7A99D71FC1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,5 +43,9 @@ Global
 		{7A472F3B-3E30-45F7-8263-18CD9340138F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A472F3B-3E30-45F7-8263-18CD9340138F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A472F3B-3E30-45F7-8263-18CD9340138F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
