@@ -7,19 +7,20 @@ public class Problem
 {
     public IList<int> SpiralOrder(int[][] matrix)
     {
+        var matrixSize = matrix.Length * matrix[0].Length;
         var result = new List<int>();
 
-        var topBound = 0;
+        var topBound = -1;
         var bottomBound = matrix.Length;
         var leftBound = -1;
         var rightBound = matrix[0].Length;
         var row = 0;
         var col = 0;
 
-        while (topBound < bottomBound && leftBound < rightBound)
+        while (topBound < bottomBound && leftBound < rightBound && result.Count < matrixSize)
         {
             // Go right
-            while (col < matrix[0].Length && col < rightBound)
+            while (col < rightBound && result.Count < matrixSize)
             {
                 result.Add(matrix[row][col]);
                 col++;
@@ -27,12 +28,11 @@ public class Problem
 
             col--;
             row++;
-            topBound--;
-            
+            topBound++;
+
             // Go down
-            while (row < matrix.Length && row < bottomBound)
+            while (row < bottomBound && result.Count < matrixSize)
             {
-                
                 result.Add(matrix[row][col]);
                 row++;
             }
@@ -42,19 +42,18 @@ public class Problem
             rightBound--;
 
             // Go left
-            while (col >= 0 && col > leftBound)
+            while (col > leftBound && result.Count < matrixSize)
             {
-                
                 result.Add(matrix[row][col]);
                 col--;
             }
 
             col++;
             row--;
-            bottomBound++;
-            
+            bottomBound--;
+
             // Go up
-            while (row >= 0 && row > topBound)
+            while (row > topBound && result.Count < matrixSize)
             {
                 result.Add(matrix[row][col]);
                 row--;
