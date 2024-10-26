@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsProblems", "src\StringsProblems\StringsProblems.csproj", "{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashMapProblems", "src\HashMapProblems\HashMapProblems.csproj", "{39D1FA7E-BF25-4E19-86FB-E35D6B57A494}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,7 @@ Global
 		{23E442C2-7311-4A29-9F93-852181BC193F} = {19963BF2-010C-45D3-B7CC-EE189312F569}
 		{7A472F3B-3E30-45F7-8263-18CD9340138F} = {19963BF2-010C-45D3-B7CC-EE189312F569}
 		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840} = {19963BF2-010C-45D3-B7CC-EE189312F569}
+		{39D1FA7E-BF25-4E19-86FB-E35D6B57A494} = {19963BF2-010C-45D3-B7CC-EE189312F569}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{26148D41-6132-4F4D-8540-7A99D71FC1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +50,9 @@ Global
 		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A118B9-6193-43E4-AFE8-06BE6EDA9840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D1FA7E-BF25-4E19-86FB-E35D6B57A494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D1FA7E-BF25-4E19-86FB-E35D6B57A494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D1FA7E-BF25-4E19-86FB-E35D6B57A494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D1FA7E-BF25-4E19-86FB-E35D6B57A494}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

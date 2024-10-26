@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # Define project options
-declare -A projects=( ["1"]="ArrayProblems" ["2"]="DynamicProgramming" ["3"]="StringsProblems" )
+declare -A projects=( ["1"]="ArrayProblems" ["2"]="DynamicProgramming" ["3"]="StringsProblems" ["4"]="HashMapProblems")
 declare -A difficulties=( ["1"]="Easy" ["2"]="Medium" ["3"]="Hard" )
 
 # Function to print messages
@@ -39,7 +39,7 @@ for key in "${!projects[@]}"; do
 done
 
 IFS= read -r qp
-validate_input "$qp" "${!projects[@]}" || handle_error "Selected project can only be one of (1, 2, 3)"
+validate_input "$qp" "${!projects[@]}" || handle_error "Selected project can only be one of (1, 2, 3, 4)"
 
 selected_project="${projects[$qp]}"
 
